@@ -34,7 +34,9 @@ Then with the `id` of the container we can rerun it by `docker start <id>` or `d
 
 And then we can do `docker start -a <container id>` (-a watch for output and print on terminal )
 
-The following will remove 
+The command `docker system prune`: will remove 
 - all stopped containers
-- 
-`docker system prune`
+- all networks not used by at least one container
+- all images
+- all build cache
+
