@@ -40,3 +40,46 @@ The command `docker system prune`: will remove
 - all images
 - all build cache
 
+
+The following command will retrieve all logs from a container. We do not start or create a new containter. just printing what it has already printed 
+`docker logs <container id> `
+
+
+## Multi command containters
+Execute an additional command inside a container.
+
+`docker exec -it <container id> <command>`
+This fllowing mean:
+1. exec means run another command
+1. -it allows us to provide input to the container
+
+For example we want to run rediss-cli in a a container running redis-server. In order to have acess to the redis-cli we need to run
+
+`docker exec -it e49f3926e387 redis-cli`
+
+In reality `-it` are two commands:
+1. `-i` is giving command to take stdin
+2. `-t` to make things formatted and nice (essentialy)
+
+To run shell in a container we can do the following: 
+
+```docker exec -it e49f3926e387 sh```
+
+We can create a containter that only has a shell inside it by doing the following
+
+``` docker run -it busybox sh ```
+
+But most commonely we will use the `docker exec...` comamand since that command allows us to run a process in a container and have a shell.
+
+## Container Isolation
+
+
+# Building custom images
+
+## creating docker images
+
+## Building a docker file
+
+## whats a base image 
+
+## build process in detail 
